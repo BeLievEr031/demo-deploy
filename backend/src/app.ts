@@ -18,8 +18,10 @@ app.post("/todo", async (req: Request, res: Response) => {
         const newTodo = await Todo.create({
             title
         });
-
-        res.status(200).json(newTodo)
+        console.log(req.ip);
+        res.status(200).json({
+            ip: req.ip
+        })
     } catch (error) {
         console.log(error);
     }
